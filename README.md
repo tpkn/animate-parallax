@@ -14,6 +14,7 @@ var config = {
 
 window.apx = new AnimateParallax(config);
 ```
+<br />
 
 ### Usage (short: no reset when mouse leaves the stage, x-axis only, no easing, no scale)
 ```javascript
