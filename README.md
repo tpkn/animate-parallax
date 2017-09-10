@@ -27,3 +27,29 @@ window.apx = new AnimateParallax({
    ]
 });
 ```
+<br />
+
+### Config
+| Variable | Type | Description |
+|-------------|:-------------:|-------------|
+| canvas | DOM element | If not set, layer would not retract back when mouse is out of stage |
+| target | Object | If set, `mouseX` and `mouseY` would be replaced by `x/y-axis` from this object |
+| center | Object | Parallax center `{x,y}` point. If `false`, using half of stage width and height |
+| mouse_out_easing | Number | - |
+
+### Layer settings
+| Variable | Type | Description |
+|-------------|:-------------:|-------------|
+| mc | Object | Createjs object instance name |
+| width | Number | Layer width. If not set, `x-axis` would be ignored |
+| height | Number | Layer height. If not set, `y-axis` would be ignored |
+| offset | Number | Layer's max travel distance in both directions from parallax center |
+| scale | Number | Scale layer programmaticaly if you don't want to do that in Animate |
+| easing | Number | Smaller value = slower layer speed |
+<br />
+
+### Public methods
+| Method | Type | Description |
+|-------------|:-------------:|-------------|
+| start | Function | - |
+| stop | Function | - |
