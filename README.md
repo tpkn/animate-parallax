@@ -26,10 +26,10 @@ var config = {
 window.apx = new AnimateParallax(config);
 ```
 
-Each layer still could be scaled by both axis:
+Each layer could be scaled by both axis:
 ```javascript
 layers: [
-   {mc: this.layer0, scale_x: 1, scale_y: 0.5}, 
+   {mc: this.layer0, scale_x: 1, scale_y: 0.5}
 ]
 ```
 
