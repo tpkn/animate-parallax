@@ -33,6 +33,11 @@ layers: [
 ]
 ```
 
+By default layers moves in the `opposite` to mouse (target) direction. To make them `follow` mouse, you could set one more property:
+```javascript
+direction: {x: 'opposite', y: 'follow'}
+```
+
 
 ### Config
 | Variable | Type | Description |
@@ -40,6 +45,7 @@ layers: [
 | canvas | DOM element | If not set, parallax will not react on mouse movement |
 | target | Object | If set, `mouseX` and `mouseY` would be replaced by `x/y-axis` from this object |
 | center | Object | Parallax center `{x,y}` point. If `false`, then using half of stage width and height |
+| direction | Object | `{x,y}`: `'opposite'` or `'follow'` |
 | autostart | Boolean | Autostart parallax action, `true` by default |
 | fps | Number | Refresh rate. By default = canvas fps |
 | mouse | Object | `x_axis`: `{Boolean}` - enable mouse x-axis<br />`y_axis`: `{Boolean}` - enable mouse y-axis<br />`reset_pos`: `{Boolean}` - when mouse leave the canvas object, reset parallax position to `center_x` and `center_y`<br />`easing`: `{Number}` - overrides layer easing |

@@ -1,5 +1,5 @@
 /*!
- * Animate Parallax (v2.0.0.20171224), http://tpkn.me/
+ * Animate Parallax (v2.1.0.20171226), http://tpkn.me/
  */
 
 function AnimateParallax(config){
@@ -20,6 +20,10 @@ function AnimateParallax(config){
    var canvas = config.canvas;
    var target = config.target;
    var layers = config.layers;
+
+   var direction_x = config.direction && config.direction.x && String(config.direction.x) == 'follow' ? -1 : 1;
+   var direction_y = config.direction && config.direction.y && String(config.direction.y) == 'follow' ? -1 : 1;
+
    var autostart = typeof config.autostart !== 'boolean' ? true : config.autostart;
 
    var fps = 1000 / (isNumber(config.fps) ? config.fps : lib.properties.fps);
@@ -27,6 +31,7 @@ function AnimateParallax(config){
    var uid;
    var i, layer, len = layers.length;
    var px, py, offset_x, offset_y, easing = 1;
+
    var center_x = config.center && isNumber(config.center.x) ? config.center.x : lib.properties.width / 2;
    var center_y = config.center && isNumber(config.center.y) ? config.center.y : lib.properties.height / 2;
 
@@ -83,13 +88,13 @@ function AnimateParallax(config){
          // Calculate offset position if width/height is set
          // If not, ignore axis
          if(isNumber(layer.width) && layer.width > 0){
-            offset_x = center_x + (center_x - mouse_x) * layer.offset / center_x;
+            offset_x = center_x + (center_x - mouse_x) * layer.offset / center_x * direction_x;
          }else{
             offset_x = layer.mc.x;
          }
 
          if(isNumber(layer.height) && layer.height > 0){
-            offset_y = center_y + (center_y - mouse_y) * layer.offset / center_y;
+            offset_y = center_y + (center_y - mouse_y) * layer.offset / center_y * direction_y;
          }else{
             offset_y = layer.mc.y;
          }
