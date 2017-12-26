@@ -42,7 +42,7 @@ layers: [
 | center | Object | Parallax center `{x,y}` point. If `false`, then using half of stage width and height |
 | autostart | Boolean | Autostart parallax action, `true` by default |
 | fps | Number | Refresh rate. By default = canvas fps |
-| mouse | Object | `x_axis`: `true/false` - enable mouse x-axis<br />`y_axis`: `true/false` - enable mouse y-axis<br />`reset_pos`: `true/false` - when mouse leave the canvas object, reset parallax position to `center_x` and `center_y`<br />`easing`: overrides layer easing |
+| mouse | Object | `x_axis`: `{Boolean}` - enable mouse x-axis<br />`y_axis`: `{Boolean}` - enable mouse y-axis<br />`reset_pos`: `{Boolean}` - when mouse leave the canvas object, reset parallax position to `center_x` and `center_y`<br />`easing`: `{Number}` - overrides layer easing |
 
 ### Layer settings
 | Variable | Type | Description |
