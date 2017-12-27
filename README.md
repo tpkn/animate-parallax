@@ -13,7 +13,6 @@ var config = {
    canvas: document.getElementById('canvas'),
    center: {x: 100, y: 100},
    target: this.target,
-   fps: 60,
    mouse: {x_axis: true, reset_pos: true, easing: 0.018},
    layers: [
       {mc: this.layer0, width: 926, height: 330, offset: 50, scale: 1,   easing: 0.2}, 
@@ -67,3 +66,8 @@ direction: {x: 'opposite', y: 'follow'}
 |-------------|:-------------:|-------------|
 | start | Function | - |
 | stop | Function | - |
+
+
+## Changelog 
+#### 2017-12-27:
+Added touch event support

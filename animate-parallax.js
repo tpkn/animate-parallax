@@ -1,5 +1,5 @@
 /*!
- * Animate Parallax (v2.1.0.20171226), http://tpkn.me/
+ * Animate Parallax (v2.2.0.20171227), http://tpkn.me/
  */
 
 function AnimateParallax(config){
@@ -51,8 +51,13 @@ function AnimateParallax(config){
    }
 
    if(typeof canvas === 'object' && mouse_enabled){
-      canvas.addEventListener('mouseenter', mouseOver);
-      canvas.addEventListener('mouseleave', mouseOut);
+      if(createjs.Touch.isSupported()){
+         canvas.addEventListener('touchstart', mouseOver);
+         canvas.addEventListener('touchend', mouseOut);
+      }else{
+         canvas.addEventListener('mouseenter', mouseOver);
+         canvas.addEventListener('mouseleave', mouseOut);
+      }
    }
 
    if(autostart){
@@ -63,15 +68,15 @@ function AnimateParallax(config){
    function isNumber(n){
       return !isNaN(parseFloat(n)) && isFinite(n);
    }
-   
+
    function updateLayers(){
       for(i = 0; i < len; i++){
          layer = layers[i];
 
          if(mouse_over){
             easing = isNumber(mouse_easing) ? mouse_easing : layer.easing;
-            mouse_x = mouse.x_axis ? stage.mouseX : center_x;
-            mouse_y = mouse.y_axis ? stage.mouseY : center_y;
+            mouse_x = mouse.x_axis ? stage.mouseX / window.devicePixelRatio : center_x;
+            mouse_y = mouse.y_axis ? stage.mouseY / window.devicePixelRatio : center_y;
          }else{
             if(target){
                if(isNumber(mouse_easing)) easing = layer.easing;
@@ -114,7 +119,7 @@ function AnimateParallax(config){
       clearInterval(uid);
    }
 
-   function mouseOver(){
+   function mouseOver(e){
       mouse_over = true;
    }
 
